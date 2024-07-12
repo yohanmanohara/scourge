@@ -7,16 +7,7 @@ export default function Home() {
   return (
     <main>
       <Navbar />
-      <div className="video-container">
-        <video
-          src={videoSrc}
-          controls
-          autoPlay
-          loop
-          muted
-          width="100%"
-        />
-      </div>
+      
     </main>
   );
 }
