@@ -1,11 +1,26 @@
-"use client"
+"use client";
 import React from "react";
-import {Navbar, NavbarBrand, NavbarMenuToggle, NavbarMenuItem, NavbarMenu, NavbarContent, NavbarItem, Link, Button, DropdownItem, DropdownTrigger, Dropdown, DropdownMenu} from "@nextui-org/react";
+import {
+  Navbar,
+  NavbarBrand,
+  NavbarMenuToggle,
+  NavbarMenuItem,
+  NavbarMenu,
+  NavbarContent,
+  NavbarItem,
+  Link,
+  Button,
+} from "@nextui-org/react";
 import Image from "next/image";
 import MensLink from "./LinkBT/MensLink";
 import WomesLink from "./LinkBT/WomesLink";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import { signIn, useSession } from "next-auth/react";
+import Avatarcomponent from "./avata/Avata";
+
 export default function App() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+  const { data: session } = useSession();
 
   const menuItems = [
     "Profile",
@@ -20,8 +35,6 @@ export default function App() {
     "Log Out",
   ];
 
-  
-
   return (
     <Navbar
       isBordered
@@ -29,54 +42,62 @@ export default function App() {
       onMenuOpenChange={setIsMenuOpen}
       className="dark"
     >
-      <NavbarContent className="sm:hidden " justify="start">
-      <NavbarMenuToggle
-  aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-  style={{ color: 'white' }}
-/>            </NavbarContent>
+      <NavbarContent className="sm:hidden" justify="start">
+        <NavbarMenuToggle
+          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+          style={{ color: 'white' }}
+        />
+      </NavbarContent>
 
-      <NavbarContent className="sm:hidden " justify="center">
+      <NavbarContent className="sm:hidden" justify="start">
         <NavbarBrand>
-        <Image src="/logo4.png" alt="ACME" width={180} height={180} />
+          <Image src="/logo4.png" alt="ACME" width={180} height={180} />
         </NavbarBrand>
       </NavbarContent>
 
-      <NavbarContent className="hidden sm:flex " >
-      <NavbarBrand>
+      <NavbarContent className="hidden sm:flex" justify="start">
+        <NavbarBrand>
           <Image src="/logo4.png" alt="ACME" width={200} height={200} />
         </NavbarBrand>
       </NavbarContent>
 
-      <NavbarContent className="hidden sm:flex gap-5" justify="center">
-           <NavbarItem>
-              <Link color="foreground" href="#">
-                Home
-              </Link>
-           </NavbarItem>
-
-           <MensLink />
-           <WomesLink />
-      </NavbarContent>
-
-
-      <NavbarContent justify="end">
-       
-        <NavbarItem className="sm:hidden">
-          <Button as={Link} color="primary" href="#" variant="flat">
-          <Image src="/googleico.png" alt="Google" width={50} height={50} />
-            </Button>
+      <NavbarContent className="hidden sm:flex gap-5" justify="start">
+        <NavbarItem>
+          <Link color="foreground" href="#">
+            Home
+          </Link>
         </NavbarItem>
-        <NavbarItem className=" hidden sm:block" >
-          <Button as={Link} color="primary" href="#" variant="flat">
-              Contune With Google
+
+        <MensLink />
+        <WomesLink />
+      </NavbarContent>
+     
+      {!session ? (
+        <NavbarContent justify="end">
+          <NavbarItem className="sm:hidden">
+            <Button as={Link} color="primary" href="#" variant="flat">
               <Image src="/googleico.png" alt="Google" width={50} height={50} />
-
-              
             </Button>
-        </NavbarItem>
-      </NavbarContent>
-
-
+          </NavbarItem>
+          <NavbarItem className="hidden sm:block">
+            <Button as={Link} color="primary" href="#" variant="flat" onClick={()=>{signIn()}}>
+              Continue With Google
+              <Image src="/googleico.png" alt="Google" width={50} height={50} />
+            </Button>
+          </NavbarItem>
+          <NavbarItem>
+            <ShoppingCartIcon style={{ color: 'white' }} />
+          </NavbarItem>
+        </NavbarContent>
+       
+      ) : (
+        <NavbarContent justify="end">
+         <Avatarcomponent />
+          <NavbarItem>
+            <ShoppingCartIcon style={{ color: 'white' }} />
+          </NavbarItem>
+       </NavbarContent>
+      )}
 
       <NavbarMenu className="dark">
         {menuItems.map((item, index) => (
@@ -84,7 +105,11 @@ export default function App() {
             <Link
               className="w-full"
               color={
-                index === 2 ? "warning" : index === menuItems.length - 1 ? "danger" : "foreground"
+                index === 2
+                  ? "warning"
+                  : index === menuItems.length - 1
+                  ? "danger"
+                  : "foreground"
               }
               href="#"
               size="lg"
@@ -94,10 +119,6 @@ export default function App() {
           </NavbarMenuItem>
         ))}
       </NavbarMenu>
-
-
-
-
     </Navbar>
   );
 }
