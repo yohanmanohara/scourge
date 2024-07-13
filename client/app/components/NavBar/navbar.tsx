@@ -17,6 +17,7 @@ import WomesLink from "./LinkBT/WomesLink";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { signIn, useSession } from "next-auth/react";
 import Avatarcomponent from "./avata/Avata";
+import Google from "next-auth/providers/google";
 
 export default function App() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
@@ -75,12 +76,12 @@ export default function App() {
       {!session ? (
         <NavbarContent justify="end">
           <NavbarItem className="sm:hidden">
-            <Button as={Link} color="primary" href="#" variant="flat" onClick={()=>{signIn()}} >
+            <Button as={Link} color="primary" href="#" variant="flat" onClick={()=>{signIn("google")}} >
               <Image src="/googleico.png" alt="Google" width={30} height={30} />
             </Button>
           </NavbarItem>
           <NavbarItem className="hidden sm:block">
-            <Button as={Link} color="primary" href="#" variant="flat" onClick={()=>{signIn()}}>
+            <Button as={Link} color="primary" href="#" variant="flat" onClick={()=>{signIn("google")}}>
               Continue With Google
               <Image src="/googleico.png" alt="Google" width={30} height={30} />
             </Button>
