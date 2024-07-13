@@ -75,7 +75,7 @@ export default function App() {
       {!session ? (
         <NavbarContent justify="end">
           <NavbarItem className="sm:hidden">
-            <Button as={Link} color="primary" href="#" variant="flat">
+            <Button as={Link} color="primary" href="#" variant="flat" onClick={()=>{signIn()}}>
               <Image src="/googleico.png" alt="Google" width={50} height={50} />
             </Button>
           </NavbarItem>
