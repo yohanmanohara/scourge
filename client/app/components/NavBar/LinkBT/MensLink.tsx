@@ -14,7 +14,7 @@ function MensLink() {
                 radius="sm"
                 variant="light"
               >
-                Mens's
+                Mens&apos;s
               </Button>
             </DropdownTrigger>
           </NavbarItem>

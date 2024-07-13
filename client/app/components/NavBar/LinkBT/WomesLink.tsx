@@ -14,7 +14,7 @@ export default function WomesLink() {
                 radius="sm"
                 variant="light"
               >
-                    Women's
+                    Women&apos;s
               </Button>
             </DropdownTrigger>
           </NavbarItem>
