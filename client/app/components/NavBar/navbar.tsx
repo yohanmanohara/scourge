@@ -49,9 +49,9 @@ export default function App() {
         />
       </NavbarContent>
 
-      <NavbarContent className="sm:hidden" justify="start">
+      <NavbarContent className="sm:hidden" justify="center">
         <NavbarBrand>
-          <Image src="/logo4.png" alt="ACME" width={180} height={180} />
+          <Image src="/logo4.png" alt="ACME" width={240} height={240} />
         </NavbarBrand>
       </NavbarContent>
 
@@ -75,14 +75,14 @@ export default function App() {
       {!session ? (
         <NavbarContent justify="end">
           <NavbarItem className="sm:hidden">
-            <Button as={Link} color="primary" href="#" variant="flat" onClick={()=>{signIn()}}>
-              <Image src="/googleico.png" alt="Google" width={50} height={50} />
+            <Button as={Link} color="primary" href="#" variant="flat" onClick={()=>{signIn()}} >
+              <Image src="/googleico.png" alt="Google" width={30} height={30} />
             </Button>
           </NavbarItem>
           <NavbarItem className="hidden sm:block">
             <Button as={Link} color="primary" href="#" variant="flat" onClick={()=>{signIn()}}>
               Continue With Google
-              <Image src="/googleico.png" alt="Google" width={50} height={50} />
+              <Image src="/googleico.png" alt="Google" width={30} height={30} />
             </Button>
           </NavbarItem>
           <NavbarItem>
