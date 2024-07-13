@@ -35,13 +35,13 @@ export default function App() {
   style={{ color: 'white' }}
 />            </NavbarContent>
 
-      <NavbarContent className="sm:hidden pr-3" justify="center">
+      <NavbarContent className="sm:hidden " justify="center">
         <NavbarBrand>
         <Image src="/logo4.png" alt="ACME" width={180} height={180} />
         </NavbarBrand>
       </NavbarContent>
 
-      <NavbarContent className="hidden sm:flex gap-2 " >
+      <NavbarContent className="hidden sm:flex " >
       <NavbarBrand>
           <Image src="/logo4.png" alt="ACME" width={200} height={200} />
         </NavbarBrand>
