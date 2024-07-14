@@ -41,7 +41,8 @@ export default function App() {
       isBordered
       isMenuOpen={isMenuOpen}
       onMenuOpenChange={setIsMenuOpen}
-      className="dark"
+      className="dark w-100% fixed"
+
     >
       <NavbarContent className="sm:hidden" justify="start">
         <NavbarMenuToggle
