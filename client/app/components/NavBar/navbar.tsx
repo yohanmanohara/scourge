@@ -52,7 +52,7 @@ export default function App() {
 
       <NavbarContent className="sm:hidden" justify="center">
         <NavbarBrand>
-          <Image src="/logo4.png" alt="ACME" width={240} height={240} />
+          <Image src="/logo4.png" alt="ACME" width={200} height={200} />
         </NavbarBrand>
       </NavbarContent>
 
