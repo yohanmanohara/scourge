@@ -5,7 +5,7 @@ export default function Home() {
     <main className="bg-black max-h-screen">
       <div className="h-screen w-100% flex justify-center items-center">
         <video
-          src="/hero.mp4"
+          src="/heroo.mp4"
           className="h-full w-full object-cover"
           autoPlay
           loop
