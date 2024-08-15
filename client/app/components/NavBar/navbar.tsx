@@ -37,6 +37,7 @@ export default function App() {
   ];
 
   return (
+ 
     <Navbar
       isBordered
       isMenuOpen={isMenuOpen}
